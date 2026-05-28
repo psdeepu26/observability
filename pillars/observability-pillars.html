@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3 Pillars of Observability — ELI5 → Technical</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Nunito', sans-serif; background: #0f0f1a; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 24px; padding: 35px; max-width: 680px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  h1 { font-size: 26px; font-weight: 800; color: white; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h1 span { font-size: 30px; }
+  .subtitle { color: #8888aa; font-size: 14px; margin-bottom: 24px; }
+  .eli5-box { background: linear-gradient(135deg, #1e2a1e, #1e3a2e); border: 2px solid #22c878; border-radius: 16px; padding: 20px; margin-bottom: 20px; position: relative; }
+  .eli5-tag { position: absolute; top: -12px; left: 16px; background: #22c878; color: white; font-size: 11px; font-weight: 700; padding: 2px 12px; border-radius: 10px; letter-spacing: 1px; }
+  .eli5-content { margin-top: 4px; font-size: 15px; line-height: 1.6; color: #c0e8d0; }
+  .eli5-content strong { color: #80ffb0; }
+  .bridge { text-align: center; color: #555577; font-size: 13px; margin: -8px 0 16px; font-style: italic; }
+  .tech-box { background: rgba(0,0,0,0.2); border: 1px solid #2a2a4a; border-radius: 16px; padding: 20px; margin-bottom: 20px; }
+  .tech-tag { font-size: 11px; font-weight: 700; color: #8888cc; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tech-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 14px; }
+  .tech-item .icon { font-size: 24px; margin-bottom: 4px; }
+  .tech-item h4 { font-size: 14px; font-weight: 700; color: #d0d0ff; margin-bottom: 4px; }
+  .tech-item p { font-size: 13px; line-height: 1.5; color: #9999bb; }
+  .tech-item code { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #ffd700; background: rgba(255,215,0,0.08); padding: 1px 6px; border-radius: 4px; }
+  .action-bar { background: rgba(34, 200, 120, 0.08); border: 1px solid rgba(34, 200, 120, 0.2); border-radius: 12px; padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+  .action-bar span:first-child { font-size: 20px; }
+  .action-bar p { font-size: 14px; color: #a0e0c0; }
+  .action-bar strong { color: #22c878; }
+  .footer { text-align: center; color: #444466; font-size: 12px; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
+  @media (max-width: 550px) { .tech-grid { grid-template-columns: 1fr; } .card { padding: 20px; } }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1><span>📊</span> 3 Pillars of Observability</h1>
+  <div class="subtitle">Observability — Like you're 5, then like you're an engineer</div>
+
+  <div class="eli5-box">
+    <div class="eli5-tag">🧒 LIKE YOU'RE 5</div>
+    <div class="eli5-content">
+      Imagine you're a <strong>doctor in an ER</strong> and a patient comes in feeling sick. You need 3 things:<br><br>
+      ❤️ <strong>Vitals (Metrics)</strong> — Heart rate, temperature, blood pressure. Numbers you track over time. "Heart rate spiked to 140 at 3pm" — tells you <em>something</em> happened.<br><br>
+      📋 <strong>Patient History (Logs)</strong> — "What did you eat? Any allergies? When did the pain start?" Detailed timestamped records.<br><br>
+      🔬 <strong>CT Scan (Traces)</strong> — A tiny camera through the body to see exactly which organ is failing. Follows one request through every system it touches.<br><br>
+      <strong>The big idea:</strong> Metrics tell you something is wrong. Logs tell you what happened. Traces tell you <em>exactly where</em>. You need ALL THREE.
+    </div>
+  </div>
+
+  <div class="bridge">↓ Now let's call it what it really is ↓</div>
+
+  <div class="tech-box">
+    <div class="tech-tag">🔧 FOR THE ENGINEER</div>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <div class="icon">❤️</div>
+        <h4>Metrics</h4>
+        <p>Numeric data over time.<br><br><strong>Types:</strong> Counter (total requests), Gauge (current CPU), Histogram (latency distribution).<br><br><strong>Tools:</strong> <code>Prometheus</code>, <code>Grafana</code>, <code>Thanos</code>, <code>CloudWatch</code>.<br><br>PromQL: <code>rate(http_requests_total[5m])</code></p>
+      </div>
+      <div class="tech-item">
+        <div class="icon">📋</div>
+        <h4>Logs</h4>
+        <p>Timestamped immutable event records.<br><br><strong>Structured > unstructured:</strong> JSON logs win. <code>{"level":"error","latency":2.3}</code><br><br><strong>Tools:</strong> <code>Loki</code> (k8s-native), <code>ELK</code>, <code>Splunk</code>, <code>Datadog</code>.<br><br>LogQL: <code>{namespace="prod"} |= "error"</code></p>
+      </div>
+      <div class="tech-item">
+        <div class="icon">🔬</div>
+        <h4>Traces</h4>
+        <p>Distributed tracing across services.<br><br><strong>Span:</strong> A unit of work ("DB query: 40ms").<br><strong>Trace ID:</strong> Propagated via headers (<code>traceparent</code>).<br><br><strong>Tools:</strong> <code>Jaeger</code>, <code>Tempo</code>, <code>Zipkin</code>, <code>X-Ray</code>.<br><br>OTel: <code>tracer.startSpan("query_db")</code></p>
+      </div>
+      <div class="tech-item">
+        <div class="icon">🔗</div>
+        <h4>The Holy Trinity</h4>
+        <p><strong>Grafana LGTM Stack:</strong><br>• <strong>L</strong>oki (logs)<br>• <strong>G</strong>rafana (visualize)<br>• <strong>T</strong>empo (traces)<br>• <strong>M</strong>imir (metrics)<br><br><strong>OpenTelemetry:</strong> Unified standard for all 3 signals.</p>
+      </div>
+      <div class="tech-item">
+        <div class="icon">🎯</div>
+        <h4>USE / RED Methods</h4>
+        <p><strong>USE (Infra):</strong> Utilization, Saturation, Errors — per resource. CPU: util=75%, sat=runqueue, err=throttling<br><br><strong>RED (Services):</strong> Rate, Errors, Duration — per request. API: rate=1000rps, err=0.1%, dur=p99=200ms</p>
+      </div>
+      <div class="tech-item">
+        <div class="icon">⚠️</div>
+        <h4>Common Pitfall</h4>
+        <p>"We collect metrics but never look at logs or traces."<br><br>Metrics are <strong>aggregated</strong> — they tell you a pod is OOM but not WHICH request. You need traces to find the culprit and logs for the details. <strong>No single pillar is enough.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-bar">
+    <span>⚡</span>
+    <p><strong>Micro-action:</strong> Go to your Grafana and find a dashboard with only metrics. Can you trace a 500 error to a specific request and log entry? If not, you're missing pillars.</p>
+  </div>
+
+  <div class="footer">
+    Observability · Metrics, Logs, Traces &nbsp;|&nbsp; 💫 Small steps. Every day.
+  </div>
+</div>
+</body>
+</html>

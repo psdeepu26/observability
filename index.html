@@ -7,87 +7,48 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #020617;
-    min-height: 100vh;
-    padding: 1.5rem;
-    color: #e2e8f0;
-    display: flex;
-    justify-content: center;
-  }
+  body { font-family: 'Inter', sans-serif; background: #020617; min-height: 100vh; padding: 1.5rem; color: #e2e8f0; display: flex; justify-content: center; }
   .container { max-width: 800px; width: 100%; }
-  h1 {
-    font-size: 28px; font-weight: 800; margin-bottom: 2px;
-    background: linear-gradient(135deg, #fff, #818cf8);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
+  h1 { font-size: 28px; font-weight: 800; margin-bottom: 2px; background: linear-gradient(135deg, #fff, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   .subtitle { color: #64748b; font-size: 13px; margin-bottom: 4px; }
-  .stats {
-    font-size: 12px; color: #475569; margin-bottom: 1.5rem;
-    padding: 8px 0; border-bottom: 1px solid #1e293b;
-  }
+  .stats { font-size: 12px; color: #475569; margin-bottom: 1.5rem; padding: 8px 0; border-bottom: 1px solid #1e293b; }
   .category-group { margin-bottom: 1.5rem; }
-  .category-title {
-    font-size: 13px; font-weight: 600; color: #94a3b8;
-    text-transform: uppercase; letter-spacing: 1px;
-    margin-bottom: 8px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .category-count {
-    font-size: 10px; background: #1e293b; color: #64748b;
-    padding: 1px 8px; border-radius: 6px; font-weight: 500;
-  }
-  .card-link {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 14px; margin-bottom: 6px;
-    background: #0f172a; border: 1px solid #1e293b;
-    border-radius: 10px; text-decoration: none;
-    transition: all 0.15s;
-  }
-  .card-link:hover {
-    border-color: #334155; background: #131d35;
-  }
-  .card-link .indicator {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: #22d3ee; flex-shrink: 0;
-  }
+  .category-title { font-size: 13px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .category-count { font-size: 10px; background: #1e293b; color: #64748b; padding: 1px 8px; border-radius: 6px; font-weight: 500; }
+  .card-link { display: flex; align-items: center; gap: 10px; padding: 10px 14px; margin-bottom: 6px; background: #0f172a; border: 1px solid #1e293b; border-radius: 10px; text-decoration: none; transition: all 0.15s; }
+  .card-link:hover { border-color: #334155; background: #131d35; }
+  .card-link .indicator { width: 6px; height: 6px; border-radius: 50%; background: #22d3ee; flex-shrink: 0; }
   .card-link .info { flex: 1; }
   .card-link .title { font-size: 14px; font-weight: 500; color: #e2e8f0; }
   .card-link .path { font-size: 11px; color: #475569; margin-top: 1px; font-family: monospace; }
   .card-link .emoji { font-size: 20px; }
-  .empty-state {
-    text-align: center; padding: 2rem; color: #475569;
-    font-size: 13px;
-  }
-  .footer {
-    text-align: center; font-size: 11px; color: #334155;
-    margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #1e293b;
-  }
-  input[type="text"] {
-    width: 100%; padding: 10px 14px; margin-bottom: 1.25rem;
-    background: #0f172a; border: 1px solid #1e293b;
-    border-radius: 10px; color: #e2e8f0; font-size: 13px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-  }
+  .footer { text-align: center; font-size: 11px; color: #334155; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #1e293b; }
+  input[type="text"] { width: 100%; padding: 10px 14px; margin-bottom: 1.25rem; background: #0f172a; border: 1px solid #1e293b; border-radius: 10px; color: #e2e8f0; font-size: 13px; font-family: 'Inter', sans-serif; outline: none; }
   input[type="text"]:focus { border-color: #6366f1; }
   input::placeholder { color: #475569; }
-  .badge-new {
-    font-size: 9px; background: rgba(52, 211, 153, 0.15); color: #34d399;
-    padding: 1px 6px; border-radius: 4px; margin-left: 6px;
-  }
+  .format-badge { font-size: 9px; background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 1px 6px; border-radius: 4px; margin-left: 6px; }
 </style>
 </head>
 <body>
 <div class="container">
   <h1>📊 observability</h1>
-  <p class="subtitle">Observability — Prometheus, Thanos, Grafana, Tempo, OTel, SLOs</p>
-  <div class="stats">0 cards · 0 categories · Updated 28 May 2026</div>
+  <p class="subtitle">Observability — Prometheus, Grafana, Tempo, Loki, OTel, SLOs</p>
+  <div class="stats">1 card · 1 category · Updated 28 May 2026</div>
   
   <input type="text" id="search" placeholder="🔍 Search cards..." oninput="filterCards()">
 
   <div id="cards">
+  <div class="category-group" data-category="pillars">
+    <div class="category-title">🔬 Observability Fundamentals <span class="category-count">1</span></div>
+    <a class="card-link" href="pillars/observability-pillars.html" data-title="3 pillars of observability metrics logs traces">
+      <span class="emoji">📊</span>
+      <div class="info">
+        <div class="title">3 Pillars of Observability <span class="format-badge">ELI5 + Tech</span></div>
+        <div class="path">pillars/observability-pillars.html · pillars/observability-pillars.md</div>
+      </div>
+      <span class="indicator"></span>
+    </a>
+  </div>
   </div>
   
   <div class="footer">
