@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insight #2 — Observability</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #e0e0e0;
+  }
+  .card {
+    background: rgba(30, 30, 50, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 580px;
+    width: 100%;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .emoji { font-size: 32px; }
+  .topic { font-size: 14px; font-weight: 600; color: #8888cc; text-transform: uppercase; letter-spacing: 1px; }
+  .day { font-size: 12px; color: #666; margin-top: 2px; }
+  .date { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .streak { 
+    display: inline-block;
+    background: rgba(255, 200, 50, 0.15);
+    color: #ffcc33;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .insight {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #d0d0e0;
+    margin-bottom: 20px;
+  }
+  .insight p { margin-bottom: 14px; }
+  .insight h3 {
+    font-size: 15px;
+    color: #8888cc;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .analogy {
+    background: rgba(100, 100, 200, 0.1);
+    border-left: 3px solid #8888cc;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: 15px;
+    color: #b0b0d0;
+  }
+  .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+  .footer { font-size: 12px; color: #555; text-align: center; }
+  .micro-action {
+    background: rgba(50, 200, 120, 0.1);
+    border-left: 3px solid #32c878;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #a0e0c0;
+  }
+  .micro-action strong { color: #32c878; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <span class="emoji">👁️</span>
+    <div>
+      <div class="topic">Observability</div>
+      <div class="day">Day #2</div>
+    </div>
+  </div>
+  <div class="date">Saturday, 30 May 2026</div>
+  <div class="streak">🔥 3-day streak!</div>
+  <div class="insight">
+    <h3>What's the difference between monitoring and observability?</h3>
+    
+    Most teams set up dashboards and alerts — that's <strong style="color:#e0e0e0;">monitoring</strong>. It answers: <em>"Is something broken?"</em>
+    
+    <div class="analogy">
+      🩺 <strong>ELI5:</strong> Monitoring is like your car's "check engine" light — it tells you something is wrong. Observability is like having the full mechanic's diagnostic port — you can ask <em>any</em> question about what's happening inside, even problems nobody predicted.
+    </div>
+
+    <h3>📊 Observability (the real deal)</h3>
+    <p>
+      Observability is about being able to ask <strong style="color:#e0e0e0;">arbitrary questions</strong> of your system without having to know the questions in advance. The three pillars — <strong>metrics, logs, and traces</strong> — are the raw data, but observability is the <em>capability</em> those enable.
+    </p>
+
+    <p>
+      The key shift: monitoring tells you <em>that</em> there's a problem; observability tells you <em>why</em>. For something like NVCF where you're running serverless functions with cold starts, tail latencies, and concurrency limits, you can't pre-define every "check engine" light. You need to explore.
+    </p>
+
+    <h3>🔑 The one metric most teams get wrong</h3>
+    <p>
+      <strong style="color:#e0e0e0;">Percentiles, not averages.</strong> If your p99 latency is 200ms but your average is 20ms, your "average user" doesn't exist. For serverless platforms, always track p50, p95, and p99. Two users out of a hundred are having a terrible experience — averages hide them completely.
+    </p>
+  </div>
+  <div class="micro-action"><strong>⚡ Today's micro-action:</strong> Open any metrics dashboard you have access to today. Find one service and switch from "avg latency" to "p99 latency." What story does it tell that the average was hiding?</div>
+  <div class="divider"></div>
+  <div class="footer">💫 Small steps. Every day. 🚀</div>
+</div>
+</body>
+</html>
