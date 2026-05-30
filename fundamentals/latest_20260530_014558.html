@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insight #2 — Observability</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #e0e0e0;
+  }
+  .card {
+    background: rgba(30, 30, 50, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 580px;
+    width: 100%;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .emoji { font-size: 32px; }
+  .topic { font-size: 14px; font-weight: 600; color: #8888cc; text-transform: uppercase; letter-spacing: 1px; }
+  .day { font-size: 12px; color: #666; margin-top: 2px; }
+  .date { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .streak { 
+    display: inline-block;
+    background: rgba(255, 200, 50, 0.15);
+    color: #ffcc33;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .insight {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #d0d0e0;
+    margin-bottom: 24px;
+  }
+  .insight strong { color: #a0a0ff; }
+  .insight code {
+    background: rgba(100,100,200,0.15);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #c0c0ff;
+  }
+  .pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 12px 0;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    border-left: 3px solid transparent;
+  }
+  .pillar.logs { border-left-color: #ff8855; }
+  .pillar.metrics { border-left-color: #55bbff; }
+  .pillar.traces { border-left-color: #88dd55; }
+  .pillar-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .pillar-text { font-size: 14px; line-height: 1.5; color: #c0c0d0; }
+  .pillar-text strong { color: #d0d0f0; }
+  .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+  .footer { font-size: 12px; color: #555; text-align: center; }
+  .micro-action {
+    background: rgba(50, 200, 120, 0.1);
+    border-left: 3px solid #32c878;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #a0e0c0;
+  }
+  .micro-action strong { color: #32c878; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <span class="emoji">📊</span>
+    <div>
+      <div class="topic">Observability</div>
+      <div class="day">Day #2</div>
+    </div>
+  </div>
+  <div class="date">Saturday, 30 May 2026</div>
+  <div class="streak">✨ Day 1</div>
+  <div class="insight">
+
+    <p><strong>Logs + Metrics + Traces ≠ Observability.</strong> Correlation does.</p>
+
+    <p>Each pillar alone tells an incomplete story. A metric spike tells you <em>something</em> happened. A trace tells you <em>where</em>. A log tells you <em>what</em>. The real power — the thing that separates "monitoring" from "observability" — is the ability to move fluidly between all three during a single incident.</p>
+
+    <div class="pillar logs">
+      <span class="pillar-icon">📝</span>
+      <div class="pillar-text">
+        <strong>Logs</strong> — unstructured event records ("user X got 503 at 14:32:01"). Rich but high-volume. Cardinally-indexed. Best for root-cause drilling.
+      </div>
+    </div>
+    <div class="pillar metrics">
+      <span class="pillar-icon">📈</span>
+      <div class="pillar-text">
+        <strong>Metrics</strong> — aggregated numeric time-series (p99 latency, CPU, request rate). Low cardinality, cheap to store. Best for alerting and dashboards.
+      </div>
+    </div>
+    <div class="pillar traces">
+      <span class="pillar-icon">🔍</span>
+      <div class="pillar-text">
+        <strong>Traces</strong> — end-to-end request paths through distributed systems (span: <code>model_infer → nvcf_api → gpu_scheduler</code>). Best for pinpointing latency in complex pipelines.
+      </div>
+    </div>
+
+    <p><strong>Practical take:</strong> In NVCF observability, a typical incident flow looks like: Grafana alert fires on GPU utilization (📈 metric) → click to open Tempo trace (🔍 traces) showing which inference pipeline span is slow → expand that span and jump to Loki logs (📝 logs) showing the exact model version and error. This three-hop correlation is the difference between "something is wrong" and "model X v2.3 has a memory leak in the attention layer."</p>
+
+    <p><strong>📐 The golden signal test:</strong> Before building any new dashboard, ask: <em>"Can I go from an alert to a root-cause log line in ≤3 clicks?"</em> If not, your observability stack is just monitoring with better paint.</p>
+
+  </div>
+  <div class="micro-action"><strong>⚡ Today's micro-action:</strong> Pick one service you troubleshoot regularly. Draw the 3-click path from alert → trace → log. Where does the chain break? Fix that link this week.</div>
+  <div class="divider"></div>
+  <div class="footer">💫 Small steps. Every day. 🚀</div>
+</div>
+</body>
+</html>
