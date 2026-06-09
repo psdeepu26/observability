@@ -1,5 +1,12 @@
 [
   {
+    "file": "observability/distributed-tracing-requests-story_20260610.html",
+    "category": "observability",
+    "title": "distributed-tracing-requests-story 20260610",
+    "emoji": "📚",
+    "timestamp": "20260609_203358"
+  },
+  {
     "file": "observability/three-pillars-observability_20260603.html",
     "category": "observability",
     "title": "three-pillars-observability 20260603",
