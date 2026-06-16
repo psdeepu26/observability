@@ -1,5 +1,12 @@
 [
   {
+    "file": "observability/high-cardinality-silent-observability-killer_20260617.html",
+    "category": "observability",
+    "title": "high-cardinality-silent-observability-killer 20260617",
+    "emoji": "📚",
+    "timestamp": "20260616_203515"
+  },
+  {
     "file": "observability/distributed-tracing-opentelemetry_20260610.html",
     "category": "observability",
     "title": "distributed-tracing-opentelemetry 20260610",
