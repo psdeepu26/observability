@@ -1,5 +1,12 @@
 [
   {
+    "file": "observability/cardinality-explosion-metrics_20260624.html",
+    "category": "observability",
+    "title": "cardinality-explosion-metrics 20260624",
+    "emoji": "📚",
+    "timestamp": "20260623_203530"
+  },
+  {
     "file": "slos-&-error-budgets/slo-error-budgets_20260624.html",
     "category": "slos-&-error-budgets",
     "title": "slo-error-budgets 20260624",
