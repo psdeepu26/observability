@@ -2,57 +2,57 @@
   {
     "file": "observability-exemplars/exemplars-metrics-to-traces_20260722.html",
     "category": "observability-exemplars",
-    "title": "exemplars-metrics-to-traces 20260722",
-    "emoji": "📚",
+    "title": "Exemplars: Jump from a Metric Spike to the Exact Trace",
+    "emoji": "📊",
     "timestamp": "20260721_203251"
   },
   {
     "file": "observability/cardinality-explosion-metrics_20260624.html",
     "category": "observability",
-    "title": "cardinality-explosion-metrics 20260624",
-    "emoji": "📚",
+    "title": "Cardinality Explosion: When Your Metrics Database Eats Itself",
+    "emoji": "📊",
     "timestamp": "20260623_203530"
   },
   {
     "file": "slos-&-error-budgets/slo-error-budgets_20260624.html",
     "category": "slos-&-error-budgets",
-    "title": "slo-error-budgets 20260624",
-    "emoji": "📚",
+    "title": "SLOs & Error Budgets: The Contract Between Reliability and Innovation",
+    "emoji": "📊",
     "timestamp": "20260623_203320"
   },
   {
     "file": "observability/metrics-alerting-red-vs-use_20260617.html",
     "category": "observability",
-    "title": "metrics-alerting-red-vs-use 20260617",
-    "emoji": "📚",
+    "title": "Metrics & Alerting: RED vs USE Method",
+    "emoji": "📊",
     "timestamp": "20260616_203718"
   },
   {
     "file": "observability/high-cardinality-silent-observability-killer_20260617.html",
     "category": "observability",
-    "title": "high-cardinality-silent-observability-killer 20260617",
-    "emoji": "📚",
+    "title": "High Cardinality: The Silent Observability Killer",
+    "emoji": "📊",
     "timestamp": "20260616_203515"
   },
   {
     "file": "observability/distributed-tracing-opentelemetry_20260610.html",
     "category": "observability",
-    "title": "distributed-tracing-opentelemetry 20260610",
-    "emoji": "📚",
+    "title": "Distributed Tracing with OpenTelemetry",
+    "emoji": "📊",
     "timestamp": "20260609_203547"
   },
   {
     "file": "observability/distributed-tracing-requests-story_20260610.html",
     "category": "observability",
-    "title": "distributed-tracing-requests-story 20260610",
-    "emoji": "📚",
+    "title": "Distributed Tracing: How Requests Tell Their Story Across Microservices",
+    "emoji": "📊",
     "timestamp": "20260609_203358"
   },
   {
     "file": "observability/three-pillars-observability_20260603.html",
     "category": "observability",
-    "title": "three-pillars-observability 20260603",
-    "emoji": "📚",
+    "title": "The Three Pillars of Observability",
+    "emoji": "📊",
     "timestamp": "20260603_055201"
   }
 ]
