@@ -1,5 +1,12 @@
 [
   {
+    "file": "observability-exemplars/exemplars-metrics-to-traces_20260722.html",
+    "category": "observability-exemplars",
+    "title": "exemplars-metrics-to-traces 20260722",
+    "emoji": "📚",
+    "timestamp": "20260721_203251"
+  },
+  {
     "file": "observability/cardinality-explosion-metrics_20260624.html",
     "category": "observability",
     "title": "cardinality-explosion-metrics 20260624",
