@@ -1,5 +1,12 @@
 [
   {
+    "file": "metric-semantics/metric-temporality-delta-vs-cumulative_20260729.html",
+    "category": "metric-semantics",
+    "title": "metric-temporality-delta-vs-cumulative 20260729",
+    "emoji": "📚",
+    "timestamp": "20260728_203225"
+  },
+  {
     "file": "observability-exemplars/exemplars-metrics-to-traces_20260722.html",
     "category": "observability-exemplars",
     "title": "Exemplars: Jump from a Metric Spike to the Exact Trace",
