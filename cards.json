@@ -1,5 +1,12 @@
 [
   {
+    "file": "latency-analysis/latency-histograms_20260805.html",
+    "category": "latency-analysis",
+    "title": "latency-histograms 20260805",
+    "emoji": "📚",
+    "timestamp": "20260804_203149"
+  },
+  {
     "file": "observability/tail-based-sampling_keep-interesting-traces_20260729.html",
     "category": "observability",
     "title": "tail-based-sampling keep-interesting-traces 20260729",
